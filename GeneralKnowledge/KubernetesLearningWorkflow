@@ -1,0 +1,27 @@
+What should your Kubernetes learning AND implementation workflow look like?
+
+Here's a good list of what you should be thinking about when implementing Kubernetes at work.
+
+✅ Day Zero Ops
+
+1. Security fundamentals
+2. Planning
+3. Kubernetes architecture
+4. Creating best practices for your team
+5. Understanding which tools and platforms to use
+
+✅ Day One Ops
+
+1. Cluster deployments
+2. Application deployments
+3. GitOps
+4. Helm
+5. Cost and resource optimization
+
+✅ Day Two Ops
+
+1. Security
+2. Monitoring
+3. Observability
+4. Service Mesh
+5. Orchestration management
