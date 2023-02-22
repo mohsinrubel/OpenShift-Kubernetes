@@ -1,0 +1,32 @@
+Are you using Helm for Kubernetes?
+
+If not (or if so), let's talk about it.
+
+Helm gives you the ability to:
+
+1. Take Kubernetes Manifests and package them up.
+2. Inject values for each Kubernetes environment.
+
+Let's go over what these look like in production.
+
+✅ Kubernetes Manifests
+
+Chances are, your application that you're deploying to Kubernetes has multiple Manifests.
+
+Perhaps some for the frontend, for the backend, some middleware, secrets, RBAC, etc...
+
+The thing is, they're all for the same app, but you're deploying them separately.
+
+Helm gives you the ability to package them up in a stack and deploy the Kubenretes Manifests at the same time. That way, you're not only saving time for deployments, but it's also far more of an efficient process if your stack is together and in one place.
+
+✅ Inject Values
+
+Let's say you have three environments - Dev, Staging, and Production.
+
+Does that mean you need to have three Manifests?
+
+For example, let's say for the Dev environment, 1 replica of the Pod gets deployed. For the Staging environment, 2 replicas get deployed. For the Prod environment, 3-4 replicas get deployed.
+
+Are you going to have three Manifests that literally do the same thing other than the replica count? That would be inefficient.
+
+Instead, you can use Helm to inject values for different environments into the Templates (the k8s Manifests) that you create. That way, you have one Template (Manifest) for all environments.

@@ -1,0 +1,11 @@
+How does networking work if there's more than one container? 👇
+
+First, let's talk about what Pods do. A Pod has a very important job, which is to run one or more containers.
+
+Each Pod has one IP address and it receives that IP address via the Container Network Interface (CNI).
+
+Even if there's more than one container in the Pod, it has only one IP address.
+
+If there's only one IP address and multiple containers, how can k8s resources communicate with the containers? Via Ports.
+
+Even though the containers have the same exact IP address, they have different ports, and that's how other k8s resources can reach them.

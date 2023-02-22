@@ -1,0 +1,32 @@
+A Service Mesh allows you to perform a few major production enhancements.
+
+Let's go over the primary two:
+
+1. Security
+2. Observability
+
+✅ Security
+
+When it comes to security, it's often the reason why engineers originally hear about a Service Mesh.
+
+In a standard Kubernetes environment, Services can talk to Services and Pods can talk to Pods without any encryption between the connections.
+
+This can be a major problem if you want the traffic going from Pod to Pod or Service to Service (typically called east-west traffic) to be guarded.
+
+Otherwise, all traffic inside of the Pod network is unencrypted.
+
+In typical environments, the network is very "flat". You have firewalls and other security measures protecting traffic from going in and out of the environment, but what about inside of the actual environment itself?
+
+Adding an extra layer of Security inside of the Pod network is never a bad thing.
+
+✅ Observability
+
+It's good to understand where traffic is going.
+
+If your applications are having timeouts or if constant retries occur.
+
+With a Service Mesh, you can get full routing visibility. You can see what traffic is coming into a Pod and where traffic is going from the Pod.
+
+It gives you full network visibility into the Pod network to understand how traffic is flowing through your cluster.
+
+This is of course an excellent method for troubleshooting as well.

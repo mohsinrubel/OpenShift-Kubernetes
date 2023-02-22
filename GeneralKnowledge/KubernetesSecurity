@@ -1,0 +1,58 @@
+What does Kubernetes security look like for your environment?
+
+The truth is, it's always going to differ between organizations.
+
+Here's the thing though - there are best practices that every org should follow.
+
+✅ Role-based access control
+
+Proper permissions/authorization for users and service accounts.
+
+You don't want every user and/or every service account to have root access throughout the entire cluster.
+
+Lock it down.
+
+
+✅ Securing control planes and worker nodes
+
+Are you thinking about how to secure Etcd and the API server if you're running Kubernetes without a Managed Kubernetes Service?
+
+How about if you are running a Managed Kubernetes Service?
+
+You still have Worker Nodes that need to be secure.
+
+
+✅ Dealing with vulnerabilities
+
+Security isn't about removing every single vulnerability. That's impossible.
+
+It's about mitigating as much risk as possible.
+
+Because of that, there will always be vulnerabilities.
+
+What's your action plan?
+
+
+✅ Security capabilities of a service mesh
+
+Encryption? Check.
+East/west traffic secured? Check.
+
+mTLS to ensure traffic is encrypted and secure between resources is a big reason why engineers want to implement a Service Mesh.
+
+
+✅ Security-enabled Container Network Interfaces (CNIs)
+
+Container Network Interfaces (CNI) come in all shapes and sizes.
+
+Some are built for beginners. Others are built with security in mind.
+
+Some may even give you the ability to not have to jump into using a Service Mesh right now.
+
+✅ Scanning manifests and container images
+
+Code is code.
+
+Regardless of if it's YAML or application code, it should still be scanned to confirm security and best practices.
+
+Inside of the container images is the code, so once that code is scanned, you also want to ensure that the container itself is secure. For example, does the base image you used have vulnerabilities?
