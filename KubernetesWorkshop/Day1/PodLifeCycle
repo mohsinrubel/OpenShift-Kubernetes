@@ -1,0 +1,51 @@
+-
+What is kubernetes pod?
+- In the kubernetes architecture, a pod is the smallest object that is set of containers to serve a common purpose
+- Pods contains at least one containers, but when there is more than one, they all sahre the pod's resources and act as single entity
+- a pod can run on single physical machine, that called node which is managed as part of a kubernetes cluster
+- Pod has stroage volumes, a unique IP address and a set of network ports, within the pod, container communicate with another using localhost, A pod is also called a "logical Host"
+- When a pod is no longer needed or the node fails, the pod is evicted
+
+
+Kubernetes POD lifecycle: 3 main phases of Pod's lifecycle
+>>> Pending—starts when at least one primary container initiates properly.
+>>> Running—commences when all containers are running properly.
+>>> Succeeded / Failed—Succeeded means the pod completed its task, and Failed means it was interrupted prematurely.
+
+Application containers and pods are ephemeral entities. Once created, they receive a unique identity (UID) and remain within their scheduled node until deletion or termination—based on their restart policy. 
+
+Pods scheduled to a dead or failed node are deleted (after a timeout period), since they cannot survive without the node’s resources or maintenance. They cannot self-heal or be rescheduled to another node—this would entail a change in their UID. Instead, the controller re-launches the pod with a new UID to an eligible node.
+
+The lifetime of storage volumes and other pod-related entities, such as persistent volumes (PV), is often coupled to a pod, if their existence depends on that of a specific pod. The moment a pod is deleted, all its related entities are also deleted—and when a new pod is created, new identical entities are created in their place.
+
+How do controllers help to manage Pods?
+Controllers manage the replication, rollout, and health of a cluster’s pods. Upon detection of a failed node, the controller will seek the unresponsive pods and replace them to other nodes.
+
+The main types of controllers you will work with in Kubernetes are Job controllers, Deployments, DaemonSet, and StatefulSet (there are additional controllers, like ReplicaSet, that work behind the scenes). 
+
+The Jobs controller runs a task until it is completed. It controls ephemeral batch-type jobs. Deployment controllers are typically used for stateless, persistent applications. StatefulSet controllers are used for databases and other stateful persistent applications. DaemonSets are used to run a pod on all nodes matching specific criteria. 
+
+In a typical Kubernetes environment, controllers create most pods automatically, using the information in the pod template. They can then manage the pod’s lifecycle, ensuring that it functions in line with the pod template’s deployment requirements. 
+
+The controller replicates pods when required—either to relieve an overworked environment or to maintain the number of pods specified in the deployment. When required, it replaces failed pods, or evicts them from cluster nodes when they have completed their task.
+
+The controller also acts as a traffic coordinator. Where pods contain several containers, they must share dependencies and hardware resources. A controller schedules these and coordinates execution and termination ofor containers. As an example, a pod may contain an ‘init’ container that sets up the environment before the application container begins to run the application—all this is coordinated by the controller. 
+
+How to create a POD?
+- Creating a pod manually : 
+You can use the Kubernetes Pod object to create a pod manually. This will create a pod without lifecycle management - if it crashes, it won’t be restarted.
+
+- Deployment: 
+A Deployment manages ReplicaSets, which are groups of identical pods. The Deployment object automatically creates pods, manages pod scalability, and can perform gradual updates of pods with minimal downtime.
+
+- Daemonset:
+A DaemonSet adds a pod to a selected set of nodes in the cluster, alongside existing pods. For example, this allows you to add a logging component to all your nodes.
+
+- Jobs: 
+A Job is used to automatically create pods, which are expected to run for a limited time, complete a specified number of tasks, and then terminate. The Job object monitors that pods generate the required number of completions, and can restart failed pods until the job is complete.
+
+- CronJob
+A CronJob lets you define a schedule, and run Jobs, defined using Cron format, based on the schedule.
+
+- Statefulset
+A StatefulSet lets you deploy pods with a “sticky identity”, meaning each pod has a unique identifier that is maintained when it is rescheduled on another node. It also guarantees the order in which pods are created. StatefulSets can also have persistent storage volumes that survive the restart of any of the pods.

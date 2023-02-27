@@ -1,0 +1,68 @@
+What is the difference between Docker and kubernetes?
+>>> Docker is a container platform and kubernetes is a container orchestration platform
+>>> Docker is designed to building and running single container and kubernetes is a system, where group VMs that are combined together to form a cluster
+
+What is the main components of kubernetes architecture?
+kubernetes has two main components:
+>>> The Control Plane: 
+- manage the kubernetes cluster
+- This is main nerve centre of each cluster
+- This is responsible for ensuring that the kubernetes cluster attains a desired state, defined by the user in a declarative manner
+
+>>> Worker nodes     : Can be virtual or physical machine, a node hosts pods, which run one or more cotainers
+
+
+Here are the main componnent of the control Plane:
+1. Kube -apiserver: 
+- provides an API that serves as the front end of a kubernetes control Plane
+- responsible for handling external and internal requests
+- Determing wheather is request is valid and then processing internal
+
+2. Kube-scheduler: 
+- Responsible for scheduling pods on specific nodes according to automated workflows and user defined conditions
+, which can nclude resource requests, concerns like affinity and taint or tolerations, priority, persistant volumes and more
+
+3. Kube-controller manager: 
+- this is a control lopp that monitors and regulates the state of kubernetes cluster
+- this receives information about the current state of the cluster and objects within internal
+- This control manager is responsible for several controllers that handle various automated activities at the cluster or pod level, including replication controller, namespace controller , service accounts controller, deployment, statefulset ad daemonset
+
+4. etcd : 
+- A key value database that contains data about your cluster state and configuration.
+ETCD is fault tolerent and distributed.
+
+5. Cloud-controller-manager:
+- This is specific to the cloud provider, not required for on-premises kubernetes environments
+- This component can embed cloud specific control logic, for example, it can access the clound provider load balancer service, enable to connect a kubernetes cluster with the API of a cloud provider
+
+Here are the main component of worker nodes:
+1. Nodes:
+- This is physical or VM that can run pods as part of kubernetes cluster.
+- A cluster can scale up 5000 nodes, to scale cluster capacity, you can add more nodes
+
+2. pods
+- This is considered the samllest unit in kubernetes
+- Each pod consists of one or more tightly coupled containers. and configurations how containers should run
+- Pod contains at least one container
+- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

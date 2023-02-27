@@ -1,0 +1,14 @@
+Both Kubernetes and OpenShift are popular container management systems, and each has its unique features and benefits. While Kubernetes helps automate application deployment, scaling, and operations, OpenShift is the container platform that works with Kubernetes to help applications run more efficiently
+
+Core Differences:
+- Openshift is not open-source, it is a commercial product but kubernetes is an open-source product
+
+- Openshift has an stronger security policies than kubernetes, Openshift comes with an integrated service that makes authentication and authorization a simple process but the security policies of kubernetes are somewhat lenient. Kubernetes lacks built-in capabilities for autheticatication and authorization.
+
+- Login is easier in Openshift using console but kubernetes dashboard must be installed separately.
+
+- Sacling is simple by using openshift but the addition of VM in kubernetes takes a long time, it necessitates the creation of YAML scripts by developers
+
+- To manage cluster, Red Had Openshift Offers a user-friendly dashboard, Kubernetes also provides a default dashboard to administer the cluster . However , because of its restricted functionality and minimal user interface, when the clusters increases insize, you will need to add more powerful tools like Istio, Prometheous and Grafana
+
+https://www.interviewbit.com/blog/openshift-vs-kubernetes/#:~:text=OpenShift%20has%20stronger%20security%20policies,capabilities%20for%20authentication%20and%20authorization.
