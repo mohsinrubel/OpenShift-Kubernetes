@@ -1,0 +1,28 @@
+Initiate Upgrade:
+Login to target cluster that need to Upgrade
+
+oc whoami  --show-server
+# To view available cluster version
+oc adm upgrade
+
+# Select an appropriate version
+export OCP_VERSION= '4.10.43"
+
+# Run this command to upgrade to a specific version
+oc adm upgrade --to=${OCP_VERSION}
+
+
+Monitor Upgrade:
+
+Cluster operators : Watch the cluster operators roll, one by one, the 'machine-config' operator roll is last. When this occurs , watch the machine config pool statuses
+
+#watch cluster operator and machine config pool
+watch -n5 "oc get co | sort -brk 2,4; echo ""; oc get mcp"
+
+Expected Result: version for each cluster operator slowly progress to the specified target version, it is complete when all items in the version column = 4.10.xx. all items in the AVAILABLE column = true and all items in the progressing and Degraded Column = False.
+
+!note: Wait until all cluster operator namespace
+
+oc get events -n openshift-cluster-version
+oc -n openshift-cluster-version logs pod <podname>
+oc get events -n openshift-etcd-operator
